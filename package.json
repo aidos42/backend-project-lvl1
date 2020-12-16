@@ -1,0 +1,23 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/aidos42/backend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/aidos42/backend-project-lvl1/actions)",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidos42/backend-project-lvl1.git"
+  },
+  "author": "aidos42",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aidos42/backend-project-lvl1/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/aidos42/backend-project-lvl1#readme"
+}
