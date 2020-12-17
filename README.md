@@ -3,3 +3,5 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b3781cb0610440b9846f/maintainability)](https://codeclimate.com/github/aidos42/backend-project-lvl1/maintainability)
 ![Lint-test](https://github.com/aidos42/backend-project-lvl1/workflows/lint-test/badge.svg)
+
+[![asciicast](https://asciinema.org/a/qUuUfeRzn2Qg7EdASvfZoqkTr.svg)](https://asciinema.org/a/qUuUfeRzn2Qg7EdASvfZoqkTr)
