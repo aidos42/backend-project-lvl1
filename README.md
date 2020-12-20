@@ -5,7 +5,13 @@
 ![Lint-test](https://github.com/aidos42/backend-project-lvl1/workflows/lint-test/badge.svg)
 
 <details>
-  <summary>Brain-even asciinema</summary>
+  <summary>brain-even asciinema</summary>
   
 [![asciicast](https://asciinema.org/a/qUuUfeRzn2Qg7EdASvfZoqkTr.svg)](https://asciinema.org/a/qUuUfeRzn2Qg7EdASvfZoqkTr)
+</details>
+
+<details>
+  <summary>brain-calc asciinema</summary>
+  
+[![asciicast](https://asciinema.org/a/SDcxnwsfrvjwwn2BGihl81tnF.svg)](https://asciinema.org/a/SDcxnwsfrvjwwn2BGihl81tnF)
 </details>

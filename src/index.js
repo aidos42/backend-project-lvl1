@@ -12,3 +12,5 @@ export const getName = () => {
 export const greeting = (name) => {
   console.log(`Hello, ${name}!`);
 };
+
+export const getRandomNumber = (min = 0, max = 100) => Math.floor(Math.random() * max) + min;
