@@ -1,16 +1,42 @@
 import readlineSync from 'readline-sync';
+import playGameEven from './games/even.js';
+import playGameCalc from './games/calc.js';
+import playGameGcd from './games/gcd.js';
 
-export const welcome = () => {
+const welcome = () => {
   console.log('Welcome to the Brain Games!');
 };
 
-export const getName = () => {
+const getName = () => {
   const name = readlineSync.question('May I have your name? ');
   return name;
 };
 
-export const greeting = (name) => {
+const greeting = (name) => {
   console.log(`Hello, ${name}!`);
 };
 
-export const getRandomNumber = (min = 0, max = 100) => Math.floor(Math.random() * max) + min;
+const playGameByType = (name, typeOfGame) => {
+  switch (typeOfGame) {
+    case 'even':
+      playGameEven(name);
+      break;
+    case 'calc':
+      playGameCalc(name);
+      break;
+    case 'gcd':
+      playGameGcd(name);
+      break;
+    default:
+      console.log('Good luck, have fun');
+  }
+};
+
+const startGame = (typeOfGame) => {
+  welcome();
+  const name = getName();
+  greeting(name);
+  playGameByType(name, typeOfGame);
+};
+
+export default startGame;
