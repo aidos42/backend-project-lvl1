@@ -21,3 +21,9 @@
   
 [![asciicast](https://asciinema.org/a/Zf6SK9tv3zAt3m11WxKjTiusG.svg)](https://asciinema.org/a/Zf6SK9tv3zAt3m11WxKjTiusG)
 </details>
+
+<details>
+  <summary>brain-progression asciinema</summary>
+  
+[![asciicast](https://asciinema.org/a/QYWR61g1u616YUd6jF6pApcy8.svg)](https://asciinema.org/a/QYWR61g1u616YUd6jF6pApcy8)
+</details>

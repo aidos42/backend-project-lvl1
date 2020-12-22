@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import playGameEven from './games/even.js';
 import playGameCalc from './games/calc.js';
 import playGameGcd from './games/gcd.js';
+import playGameProgression from './games/progression.js';
 
 const welcome = () => {
   console.log('Welcome to the Brain Games!');
@@ -26,6 +27,9 @@ const playGameByType = (name, typeOfGame) => {
       break;
     case 'gcd':
       playGameGcd(name);
+      break;
+    case 'progression':
+      playGameProgression(name);
       break;
     default:
       console.log('Good luck, have fun');
