@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import getRandomNumber from '../utilities.js';
+import isAnswerCorrect from '../isAnswerCorrect.js';
 
 const getProgression = (seed) => {
   const result = [];
@@ -30,12 +31,11 @@ const playGame = (name) => {
     const seed = getRandomNumber(1, 10);
     const progression = getProgression(seed);
     const questionAndAnswer = getQuestionAndAnswer(progression);
-    console.log(`Question: ${questionAndAnswer[0].join(' ')}`);
+    const question = questionAndAnswer[0].join(' ');
+    console.log(`Question: ${question}`);
     const answer = Number(readlineSync.question('Your answer: '));
-    if (answer === questionAndAnswer[1]) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${questionAndAnswer[1]}'.\nLet's try again, ${name}!`);
+    const expectedAnswer = questionAndAnswer[1];
+    if (!isAnswerCorrect(expectedAnswer, answer, name)) {
       return;
     }
   }

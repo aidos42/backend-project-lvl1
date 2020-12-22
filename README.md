@@ -7,13 +7,13 @@
 <details>
   <summary>brain-even asciinema</summary>
   
-[![asciicast](https://asciinema.org/a/qUuUfeRzn2Qg7EdASvfZoqkTr.svg)](https://asciinema.org/a/qUuUfeRzn2Qg7EdASvfZoqkTr)
+[![asciicast](https://asciinema.org/a/ttDiNNPu7lq1vWWzJGPaqrNXT.svg)](https://asciinema.org/a/ttDiNNPu7lq1vWWzJGPaqrNXT)
 </details>
 
 <details>
   <summary>brain-calc asciinema</summary>
   
-[![asciicast](https://asciinema.org/a/SDcxnwsfrvjwwn2BGihl81tnF.svg)](https://asciinema.org/a/SDcxnwsfrvjwwn2BGihl81tnF)
+[![asciicast](https://asciinema.org/a/F9xm9tQwX8Nytra0mOVuQSNH8.svg)](https://asciinema.org/a/F9xm9tQwX8Nytra0mOVuQSNH8)
 </details>
 
 <details>

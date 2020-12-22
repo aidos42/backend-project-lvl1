@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import getRandomNumber from '../utilities.js';
+import isAnswerCorrect from '../isAnswerCorrect.js';
 
 const isEven = (number) => number % 2 === 0;
 
@@ -10,10 +11,7 @@ const playGame = (name) => {
     console.log(`Question: ${randomNumber}`);
     const answer = readlineSync.question('Your answer: ');
     const expectedAnswer = isEven(randomNumber) ? 'yes' : 'no';
-    if (expectedAnswer === answer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.\nLet's try again, ${name}!`);
+    if (!isAnswerCorrect(expectedAnswer, answer, name)) {
       return;
     }
   }
