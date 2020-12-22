@@ -27,3 +27,9 @@
   
 [![asciicast](https://asciinema.org/a/QYWR61g1u616YUd6jF6pApcy8.svg)](https://asciinema.org/a/QYWR61g1u616YUd6jF6pApcy8)
 </details>
+
+<details>
+  <summary>brain-prime asciinema</summary>
+  
+[![asciicast](https://asciinema.org/a/o2474027wFBoiPNruipMudNaV.svg)](https://asciinema.org/a/o2474027wFBoiPNruipMudNaV)
+</details>

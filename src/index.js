@@ -3,6 +3,7 @@ import playGameEven from './games/even.js';
 import playGameCalc from './games/calc.js';
 import playGameGcd from './games/gcd.js';
 import playGameProgression from './games/progression.js';
+import playGamePrime from './games/prime.js';
 
 const welcome = () => {
   console.log('Welcome to the Brain Games!');
@@ -32,7 +33,7 @@ const playGameByType = (name, typeOfGame) => {
       playGameProgression(name);
       break;
     default:
-      console.log('Good luck, have fun');
+      playGamePrime(name);
   }
 };
 
