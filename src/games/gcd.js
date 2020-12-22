@@ -2,17 +2,17 @@ import readlineSync from 'readline-sync';
 import getRandomNumber from '../utilities.js';
 import isAnswerCorrect from '../isAnswerCorrect.js';
 
-const getGCD = (numOne, numTwo) => {
-  let a = numOne;
-  let b = numTwo;
-  while (a !== 0 && b !== 0) {
-    if (a > b) {
-      a %= b;
+const getGCD = (a, b) => {
+  let numOne = a;
+  let numTwo = b;
+  while (numOne !== 0 && numTwo !== 0) {
+    if (numOne > numTwo) {
+      numOne %= numTwo;
     } else {
-      b %= a;
+      numTwo %= numOne;
     }
   }
-  return a === 0 ? b : a;
+  return numOne === 0 ? numTwo : numOne;
 };
 
 const playGame = (name) => {
