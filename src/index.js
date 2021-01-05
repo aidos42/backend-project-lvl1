@@ -5,19 +5,6 @@ import playGameGcd from './games/gcd.js';
 import playGameProgression from './games/progression.js';
 import playGamePrime from './games/prime.js';
 
-const welcome = () => {
-  console.log('Welcome to the Brain Games!');
-};
-
-const getName = () => {
-  const name = readlineSync.question('May I have your name? ');
-  return name;
-};
-
-const greeting = (name) => {
-  console.log(`Hello, ${name}!`);
-};
-
 const playGameByType = (name, typeOfGame) => {
   switch (typeOfGame) {
     case 'even':
@@ -38,9 +25,9 @@ const playGameByType = (name, typeOfGame) => {
 };
 
 const startGame = (typeOfGame) => {
-  welcome();
-  const name = getName();
-  greeting(name);
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
   playGameByType(name, typeOfGame);
 };
 
