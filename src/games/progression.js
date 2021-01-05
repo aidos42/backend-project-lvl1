@@ -1,6 +1,5 @@
-import readlineSync from 'readline-sync';
 import getRandomNumber from '../utilities.js';
-import isAnswerCorrect from '../isAnswerCorrect.js';
+import startGame from '../index.js';
 
 const getProgression = (seed) => {
   const result = [];
@@ -11,7 +10,7 @@ const getProgression = (seed) => {
   return result;
 };
 
-const getQuestionAndAnswer = (progression) => { // недостаточно абстракции?
+const getQuestionAndAnswer = (progression) => {
   const indexToChange = getRandomNumber(1, 10);
   const resultProgression = [];
   const resultNumber = progression[indexToChange];
@@ -25,21 +24,18 @@ const getQuestionAndAnswer = (progression) => { // недостаточно аб
   return [resultProgression, resultNumber];
 };
 
-const playGame = (name) => {
-  console.log('What number is missing in the progression?');
+const playGameProgression = () => {
+  const rule = 'What number is missing in the progression?';
+  const questions = [];
+  const expectedAnswers = [];
   for (let i = 0; i < 3; i += 1) {
     const seed = getRandomNumber(1, 10);
     const progression = getProgression(seed);
     const questionAndAnswer = getQuestionAndAnswer(progression);
-    const question = questionAndAnswer[0].join(' ');
-    console.log(`Question: ${question}`);
-    const answer = Number(readlineSync.question('Your answer: '));
-    const expectedAnswer = questionAndAnswer[1];
-    if (!isAnswerCorrect(expectedAnswer, answer, name)) {
-      return;
-    }
+    questions[i] = questionAndAnswer[0].join(' ');
+    expectedAnswers[i] = String(questionAndAnswer[1]);
   }
-  console.log(`Congratulations, ${name}!`);
+  startGame(rule, questions, expectedAnswers);
 };
 
-export default playGame;
+export default playGameProgression;

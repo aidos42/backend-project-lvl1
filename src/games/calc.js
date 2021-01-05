@@ -1,6 +1,5 @@
-import readlineSync from 'readline-sync';
 import getRandomNumber from '../utilities.js';
-import isAnswerCorrect from '../isAnswerCorrect.js';
+import startGame from '../index.js';
 
 const getRandomOperation = () => {
   const operations = ['+', '-', '*'];
@@ -17,20 +16,18 @@ const getCorrectAnswer = (firstNumber, secondNumber, operation) => {
   return firstNumber * secondNumber;
 };
 
-const playGame = (name) => {
-  console.log('What is the result of the expression?');
+const playGameCalc = () => {
+  const rule = 'What is the result of the expression?';
+  const questions = [];
+  const expectedAnswers = [];
   for (let i = 0; i < 3; i += 1) {
     const firstNumber = getRandomNumber();
     const secondNumber = getRandomNumber();
     const operation = getRandomOperation();
-    console.log(`Question: ${firstNumber} ${operation} ${secondNumber}`);
-    const answer = Number(readlineSync.question('Your answer: '));
-    const expectedAnswer = getCorrectAnswer(firstNumber, secondNumber, operation);
-    if (!isAnswerCorrect(expectedAnswer, answer, name)) {
-      return;
-    }
+    questions[i] = `${firstNumber} ${operation} ${secondNumber}`;
+    expectedAnswers[i] = String(getCorrectAnswer(firstNumber, secondNumber, operation));
   }
-  console.log(`Congratulations, ${name}!`);
+  startGame(rule, questions, expectedAnswers);
 };
 
-export default playGame;
+export default playGameCalc;
