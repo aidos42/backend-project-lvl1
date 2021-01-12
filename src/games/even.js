@@ -1,17 +1,19 @@
 import getRandomNumber from '../utilities.js';
-import startGame from '../index.js';
+import { startGame, numberOfRounds } from '../index.js';
+
+const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (number) => number % 2 === 0;
 
-const playGameEven = () => {
-  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const questions = [];
-  const expectedAnswers = [];
-  for (let i = 0; i < 3; i += 1) {
-    questions[i] = getRandomNumber();
-    expectedAnswers[i] = isEven(questions[i]) ? 'yes' : 'no';
-  }
-  startGame(rule, questions, expectedAnswers);
-};
+export default () => {
+  const gameData = [];
 
-export default playGameEven;
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const questionAndAnswer = [];
+    questionAndAnswer[0] = getRandomNumber();
+    questionAndAnswer[1] = isEven(questionAndAnswer[0]) ? 'yes' : 'no';
+    gameData[i] = questionAndAnswer;
+  }
+
+  startGame(rule, gameData);
+};

@@ -1,33 +1,34 @@
 import getRandomNumber from '../utilities.js';
-import startGame from '../index.js';
+import { startGame, numberOfRounds } from '../index.js';
 
-const getRandomOperation = () => {
-  const operations = ['+', '-', '*'];
-  return operations[getRandomNumber(0, operations.length)];
+const rule = 'What is the result of the expression?';
+const operations = ['+', '-', '*'];
+
+const calculate = (a, b, operation) => {
+  switch (operation) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      throw new Error(`Invalid operation: ${operation}`);
+  }
 };
 
-const getCorrectAnswer = (firstNumber, secondNumber, operation) => {
-  if (operation === '+') {
-    return firstNumber + secondNumber;
-  }
-  if (operation === '-') {
-    return firstNumber - secondNumber;
-  }
-  return firstNumber * secondNumber;
-};
+export default () => {
+  const gameData = [];
 
-const playGameCalc = () => {
-  const rule = 'What is the result of the expression?';
-  const questions = [];
-  const expectedAnswers = [];
-  for (let i = 0; i < 3; i += 1) {
-    const firstNumber = getRandomNumber();
-    const secondNumber = getRandomNumber();
-    const operation = getRandomOperation();
-    questions[i] = `${firstNumber} ${operation} ${secondNumber}`;
-    expectedAnswers[i] = String(getCorrectAnswer(firstNumber, secondNumber, operation));
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const questionAndAnswer = [];
+    const a = getRandomNumber();
+    const b = getRandomNumber();
+    const operation = operations[getRandomNumber(0, operations.length)];
+    questionAndAnswer[0] = `${a} ${operation} ${b}`;
+    questionAndAnswer[1] = String(calculate(a, b, operation));
+    gameData[i] = questionAndAnswer;
   }
-  startGame(rule, questions, expectedAnswers);
-};
 
-export default playGameCalc;
+  startGame(rule, gameData);
+};

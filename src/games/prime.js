@@ -1,8 +1,9 @@
 import getRandomNumber from '../utilities.js';
-import startGame from '../index.js';
+import { startGame, numberOfRounds } from '../index.js';
 
 const THE_FIRST_PRIME_NUMBER = 2;
-const THE_FIRST_500_PRIME_NUMBERS_CAP = 3571;
+const THE_FIRST_500_PRIME_NUMBERS_CAP = 3571; // небольшое число, для удобства игрока.
+const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
@@ -10,18 +11,19 @@ const isPrime = (number) => {
       return false;
     }
   }
+
   return true;
 };
 
-const playGamePrime = () => {
-  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const questions = [];
-  const expectedAnswers = [];
-  for (let i = 0; i < 3; i += 1) {
-    questions[i] = getRandomNumber(THE_FIRST_PRIME_NUMBER, THE_FIRST_500_PRIME_NUMBERS_CAP);
-    expectedAnswers[i] = isPrime(questions[i]) ? 'yes' : 'no';
-  }
-  startGame(rule, questions, expectedAnswers);
-};
+export default () => {
+  const gameData = [];
 
-export default playGamePrime;
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const questionAndAnswer = [];
+    questionAndAnswer[0] = getRandomNumber(THE_FIRST_PRIME_NUMBER, THE_FIRST_500_PRIME_NUMBERS_CAP);
+    questionAndAnswer[1] = isPrime(questionAndAnswer[0]) ? 'yes' : 'no';
+    gameData[i] = questionAndAnswer;
+  }
+
+  startGame(rule, gameData);
+};
