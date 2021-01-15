@@ -8,13 +8,15 @@ export const startGame = (rule, gameData) => {
   console.log(`Hello, ${name}!`);
   console.log(rule);
 
-  for (let i = 0; i < 3; i += 1) {
-    console.log(`Question: ${gameData[i][0]}`);
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    const [question, expectedAnswer] = gameData[i];
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    if (gameData[i][1] === answer) {
+    if (expectedAnswer === answer) {
       console.log('Correct!');
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${gameData[i][1]}'.\nLet's try again, ${name}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
       return;
     }
   }

@@ -4,19 +4,25 @@ import { startGame, numberOfRounds } from '../index.js';
 const rule = 'What number is missing in the progression?';
 
 const getProgression = () => {
-  const result = [];
+  const progression = [];
   const seed = getRandomNumber(1, 10);
+  const progressionLength = 10;
 
-  for (let i = 1; i <= 10; i += 1) {
+  for (let i = 1; i <= progressionLength; i += 1) {
     const number = i * seed;
-    result.push(number);
+    progression.push(number);
   }
 
-  const indexToChange = getRandomNumber(0, 9);
-  const resultNumber = result[indexToChange];
-  result[indexToChange] = '..';
+  return progression;
+};
 
-  return [result, resultNumber];
+const setDeletedNumber = (progression) => {
+  const progressionTemp = progression; // линтер ругается на изменение аргумента
+  const indexToChange = getRandomNumber(0, progressionTemp.length);
+  const deletedNumber = progressionTemp[indexToChange];
+  progressionTemp[indexToChange] = '..';
+
+  return deletedNumber;
 };
 
 export default () => {
@@ -24,9 +30,14 @@ export default () => {
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     const questionAndAnswer = [];
+
     const progression = getProgression();
-    questionAndAnswer[0] = progression[0].join(' ');
-    questionAndAnswer[1] = String(progression[1]);
+    const deletedNumber = setDeletedNumber(progression);
+    const question = progression.join(' ');
+    questionAndAnswer.push(question);
+    const answer = String(deletedNumber);
+    questionAndAnswer.push(answer);
+
     gameData[i] = questionAndAnswer;
   }
 

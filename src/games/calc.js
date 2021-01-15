@@ -22,11 +22,15 @@ export default () => {
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     const questionAndAnswer = [];
+
     const a = getRandomNumber();
     const b = getRandomNumber();
     const operation = operations[getRandomNumber(0, operations.length)];
-    questionAndAnswer[0] = `${a} ${operation} ${b}`;
-    questionAndAnswer[1] = String(calculate(a, b, operation));
+    const question = `${a} ${operation} ${b}`;
+    questionAndAnswer.push(question);
+    const answer = String(calculate(a, b, operation));
+    questionAndAnswer.push(answer);
+
     gameData[i] = questionAndAnswer;
   }
 

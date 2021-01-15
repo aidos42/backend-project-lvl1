@@ -10,8 +10,12 @@ export default () => {
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     const questionAndAnswer = [];
-    questionAndAnswer[0] = getRandomNumber();
-    questionAndAnswer[1] = isEven(questionAndAnswer[0]) ? 'yes' : 'no';
+
+    const question = getRandomNumber();
+    questionAndAnswer.push(question);
+    const answer = isEven(questionAndAnswer[0]) ? 'yes' : 'no';
+    questionAndAnswer.push(answer);
+
     gameData[i] = questionAndAnswer;
   }
 

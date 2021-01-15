@@ -4,11 +4,9 @@ import { startGame, numberOfRounds } from '../index.js';
 const rule = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (a, b) => {
-  if (!b) {
-    return a;
-  }
+  const GCD = (b === 0) ? a : getGCD(b, a % b);
 
-  return getGCD(b, a % b);
+  return GCD;
 };
 
 export default () => {
@@ -16,10 +14,14 @@ export default () => {
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     const questionAndAnswer = [];
+
     const a = getRandomNumber();
     const b = getRandomNumber();
-    questionAndAnswer[0] = `${a} ${b}`;
-    questionAndAnswer[1] = String(getGCD(a, b));
+    const question = `${a} ${b}`;
+    questionAndAnswer.push(question);
+    const answer = String(getGCD(a, b));
+    questionAndAnswer.push(answer);
+
     gameData[i] = questionAndAnswer;
   }
 

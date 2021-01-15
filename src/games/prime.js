@@ -20,8 +20,12 @@ export default () => {
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     const questionAndAnswer = [];
-    questionAndAnswer[0] = getRandomNumber(THE_FIRST_PRIME_NUMBER, THE_FIRST_500_PRIME_NUMBERS_CAP);
-    questionAndAnswer[1] = isPrime(questionAndAnswer[0]) ? 'yes' : 'no';
+
+    const question = getRandomNumber(THE_FIRST_PRIME_NUMBER, THE_FIRST_500_PRIME_NUMBERS_CAP);
+    questionAndAnswer.push(question);
+    const answer = isPrime(questionAndAnswer[0]) ? 'yes' : 'no';
+    questionAndAnswer.push(answer);
+
     gameData[i] = questionAndAnswer;
   }
 
