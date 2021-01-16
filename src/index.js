@@ -12,13 +12,15 @@ export const startGame = (rule, gameData) => {
     const [question, expectedAnswer] = gameData[i];
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    if (expectedAnswer === answer) {
-      console.log('Correct!');
-    } else {
+
+    if (expectedAnswer !== answer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
+
       return;
     }
+
+    console.log('Correct!');
   }
 
   console.log(`Congratulations, ${name}!`);
