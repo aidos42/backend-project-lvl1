@@ -3,12 +3,13 @@ import { startGame, numberOfRounds } from '../index.js';
 
 const rule = 'What number is missing in the progression?';
 const progressionLength = 10;
+const firstElement = 0;
 
 const generateProgression = (step) => {
   const progression = [];
 
   for (let i = 1; i <= progressionLength; i += 1) {
-    const number = i * step;
+    const number = firstElement + (i * step);
     progression.push(number);
   }
 
